@@ -103,17 +103,11 @@ function draw() {
 
 
 function updateText() {
-
     template = random(storyTemplates);
-
     template = template.replace("{noun}", nounInput.value())
-
     template = template.replace("{verb}", verbInput.value())
-
     template = template.replace("{adj}", adjectiveInput.value())
-
     template = template.replace("{adv}", adverbInput.value())
-
     template = template.replace("{place}", placeInput.value())
 
 
