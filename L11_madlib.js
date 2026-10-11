@@ -1,1 +1,139 @@
-// write your codes here
+let storyButton;
+
+let nounInput
+
+let verbInput;
+
+let adjectiveInput;
+
+let adverbInput;
+
+let placeInput;
+
+let someText;
+
+let storyTemplates;
+
+let storyText= "";
+
+let myStory
+
+
+function setup() {
+
+    createCanvas(800, 700);
+
+    background("skyblue");
+
+    storyButton = createButton("Generate Story!📖");
+
+    storyButton.position(width/2+45, 220)
+
+    storyButton.mousePressed(updateText)
+
+
+    nounInput = createInput()
+
+    nounInput.position(width/2+20, 30)
+
+    verbInput = createInput()
+
+    verbInput.position(width/2+20, 70)
+
+    adjectiveInput = createInput()
+
+    adjectiveInput.position(width/2+20, 110)
+
+    adverbInput = createInput()
+
+    adverbInput.position(width/2+20, 150)
+
+    placeInput = createInput()
+
+    placeInput.position(width/2+20, 190)
+
+
+    storyTemplates = [
+
+        "The {adj} {noun} decided to {verb} {adv} in the {place}.", 
+
+        "One day, a {adj} {noun} wanted to {verb} {adv} in {place}.", 
+
+        "Did you hear about the {adj} {noun} that tried to {verb} {adv} near {place}?",
+
+        "Legend says that a {adj} {noun} will {verb} {adv} atop the {place}.",
+
+        "Believe it or not, a {adj} {noun} actually {verb} {adv} through the {place}.",
+
+        "Years later, we discovered a {adj} {noun} that used to {verb} {adv} inside that {place}."
+
+    ];
+
+}
+
+
+function draw() {
+
+    background("skyblue")
+
+    textAlign(RIGHT, CENTER);
+
+    fill("black")
+
+    textSize(18)
+
+    text("Enter a noun (e.g. dog):", width/2, 40)
+
+    text("Enter a verb (e.g. run):", width/2, 80)
+
+    text("Enter a adjective (e.g. happy):", width/2, 120)
+
+    text("Enter a adverb (e.g. angrily):", width/2, 160)
+
+    text("Enter a place (e.g. Sentosa):", width/2, 200)
+
+
+    textAlign(CENTER, CENTER);
+
+    fill("red");
+
+    text(myStory, width/2, height/2+200);
+
+}
+
+
+function updateText() {
+
+    template = random(storyTemplates);
+
+    template = template.replace("{noun}", nounInput.value())
+
+    template = template.replace("{verb}", verbInput.value())
+
+    template = template.replace("{adj}", adjectiveInput.value())
+
+    template = template.replace("{adv}", adverbInput.value())
+
+    template = template.replace("{place}", placeInput.value())
+
+
+    myStory = template
+
+    //someText = nounInput.value()
+
+    print(nounInput.value());
+
+    print(verbInput.value());
+
+    print(adjectiveInput.value());
+
+    print(adverbInput.value());
+
+    print(placeInput.value());
+
+
+    print("story is generated!😁")
+
+    print(myStory)
+
+}
